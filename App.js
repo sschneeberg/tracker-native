@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import 'react-native-gesture-handler';
-import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
     useFonts,
     OpenSans_300Light,
@@ -17,12 +16,13 @@ import {
     OpenSans_800ExtraBold_Italic
 } from '@expo-google-fonts/open-sans';
 import { AmaticSC_400Regular, AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
+import { AntDesign } from '@expo/vector-icons';
 
-import Home from './Components/Home';
-import BottomNav from './Components/Partials/BottomNav';
+import CalendarView from './Components/CalendarView';
 import Loading from './Components/Partials/Loading';
+import Home from './Components/Home';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
     let [fontsLoaded] = useFonts({
@@ -41,23 +41,37 @@ export default function App() {
     });
 
     const [isLoaded, setLoaded] = useState(false);
+    const setLoading = () => {
+        setLoaded(true);
+    };
+
+    const icons = {
+        Search: <AntDesign name="search1" size={24} color="#474747" />,
+        Home: <AntDesign name="home" size={24} color="#474747" />,
+        Calendar: <AntDesign name="calendar" size={24} color="#474747" />,
+        Settings: <AntDesign name="setting" size={24} color="#474747" />
+    };
+
     if (!fontsLoaded) {
         return null;
     } else if (fontsLoaded && !isLoaded) {
-        return (
-            <Loading
-                setLoaded={() => {
-                    setLoaded(true);
-                }}
-            />
-        );
+        return <Loading setLoaded={setLoading} />;
     } else {
         return (
             <NavigationContainer>
-                <Stack.Navigator screenOptions={{ headerShown: false }}>
-                    <Stack.Screen name="Home" component={Home} />
-                </Stack.Navigator>
-                <BottomNav />
+                <Tab.Navigator
+                    screenOptions={({ route }) => ({
+                        tabBarIcon: () => {
+                            console.log(route.name);
+                            return icons[route.name];
+                        }
+                    })}
+                    tabBarOptions={{ activeTintColor: 'turquoise', showLabel: false }}>
+                    <Tab.Screen name="Search" component={CalendarView} />
+                    <Tab.Screen name="Home" component={Home} />
+                    <Tab.Screen name="Calendar" component={CalendarView} />
+                    <Tab.Screen name="Settings" component={CalendarView} />
+                </Tab.Navigator>
             </NavigationContainer>
         );
     }

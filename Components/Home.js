@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-function Home({ navigation }) {
+function Home() {
     return (
         <View style={styles.container}>
-            <Text style={styles.prediction}>Period Starts in 21 Days</Text>
+            <Text style={styles.prediction}>Period Starts in 18 Days</Text>
             <Text style={styles.predictionDate}>March 5</Text>
-            <Text style={styles.placeholder}>Placeholder for some sort of tracking guage</Text>
+            <TouchableOpacity style={styles.btn}>
+                <Text style={styles.btnText}>Period Started?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Text style={{ color: 'turquoise', padding: 10, marginTop: 10 }}>Notify Me</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -16,33 +21,39 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignContent: 'center',
         height: '100%',
         width: '100%',
-        padding: '10%'
+        padding: 30,
+        backgroundColor: 'white'
     },
     prediction: {
-        fontSize: 24,
+        fontSize: 36,
         color: 'black',
         fontFamily: 'AmaticSC_700Bold',
-        marginTop: '5%'
+        marginTop: '30%'
     },
     predictionDate: {
+        fontSize: 18,
+        color: 'rgb(118, 172, 181)',
         alignSelf: 'flex-end',
-        margin: '5%'
+        margin: '5%',
+        marginRight: 0
     },
-    placeholder: {
-        height: '40%',
-        width: '60%',
+    btn: {
         alignSelf: 'center',
-        marginTop: '20%',
-        borderColor: 'grey',
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderRadius: 50,
-        textAlign: 'center',
-        padding: '10%',
-        paddingTop: '20%'
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '75%',
+        height: 50,
+        borderRadius: 12,
+        backgroundColor: 'rgb(190, 235, 226)',
+        marginTop: '15%'
+    },
+    btnText: {
+        fontFamily: 'AmaticSC_700Bold',
+        fontSize: 20,
+        letterSpacing: 1
     }
 });
 
