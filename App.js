@@ -21,6 +21,7 @@ import { AntDesign } from '@expo/vector-icons';
 import CalendarView from './Components/CalendarView';
 import Loading from './Components/Partials/Loading';
 import Home from './Components/Home';
+import Settings from './Components/Settings';
 
 const Tab = createBottomTabNavigator();
 
@@ -62,15 +63,14 @@ export default function App() {
                 <Tab.Navigator
                     screenOptions={({ route }) => ({
                         tabBarIcon: () => {
-                            console.log(route.name);
                             return icons[route.name];
                         }
                     })}
-                    tabBarOptions={{ activeTintColor: 'turquoise', showLabel: false }}>
-                    <Tab.Screen name="Search" component={CalendarView} />
+                    tabBarOptions={{ activeTintColor: 'turquoise', showLabel: false, style: { height: 60 } }}>
+                    <Tab.Screen name="Settings" component={Settings} />
                     <Tab.Screen name="Home" component={Home} />
+                    <Tab.Screen name="Search" component={CalendarView} />
                     <Tab.Screen name="Calendar" component={CalendarView} />
-                    <Tab.Screen name="Settings" component={CalendarView} />
                 </Tab.Navigator>
             </NavigationContainer>
         );

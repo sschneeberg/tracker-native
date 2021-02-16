@@ -4,13 +4,15 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 function Home() {
     return (
         <View style={styles.container}>
-            <Text style={styles.prediction}>Period Starts in 18 Days</Text>
-            <Text style={styles.predictionDate}>March 5</Text>
+            <Text style={styles.prediction}>Period Starts in 8 Days</Text>
+            <Text style={styles.predictionDate}>February 23</Text>
             <TouchableOpacity style={styles.btn}>
                 <Text style={styles.btnText}>Period Started?</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-                <Text style={{ color: 'turquoise', padding: 10, marginTop: 10 }}>Notify Me</Text>
+                <Text style={{ color: 'turquoise', padding: 10, marginTop: 10, fontFamily: 'OpenSans_400Regular' }}>
+                    Notify Me
+                </Text>
             </TouchableOpacity>
         </View>
     );
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
         color: 'rgb(118, 172, 181)',
         alignSelf: 'flex-end',
         margin: '5%',
-        marginRight: 0
+        marginRight: 0,
+        fontFamily: 'OpenSans_400Regular'
     },
     btn: {
         alignSelf: 'center',

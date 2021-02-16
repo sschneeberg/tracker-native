@@ -2,11 +2,11 @@ import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Calendar from './Partials/Calendar';
 
-function CalendarView({ navigation }) {
+function CalendarView() {
     return (
         <View style={styles.container}>
-            <Text style={styles.prediction}>Period Starts in 18 Days</Text>
-            <Text style={styles.predictionDate}>March 5</Text>
+            <Text style={styles.prediction}>Period Starts in 8 Days</Text>
+            <Text style={styles.predictionDate}>February 23</Text>
             <Calendar />
         </View>
     );
@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         color: 'rgb(118, 172, 181)',
         alignSelf: 'flex-end',
         margin: '5%',
-        marginRight: 0
+        marginRight: 0,
+        fontFamily: 'OpenSans_400Regular'
     }
 });
 

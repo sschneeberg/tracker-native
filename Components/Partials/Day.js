@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 function Day(props) {
@@ -14,18 +14,19 @@ function Day(props) {
             backgroundColor: 'rgba(190, 235, 226, 0.3)',
             margin: 2,
             width: 35,
-            height: 40,
-            color: color
+            height: 40
         }
     });
 
+    //TEMP for teaser
+    useEffect(() => {
+        console.log(props.day);
+        if (props.day === 23) setColor('turquoise');
+    }, []);
+
     return (
-        <TouchableOpacity
-            style={styles.container}
-            onPress={() => {
-                setColor('turquoise');
-            }}>
-            <Text>{props.day}</Text>
+        <TouchableOpacity style={styles.container}>
+            {props.day ? <Text style={{ color: color }}>{props.day}</Text> : null}
         </TouchableOpacity>
     );
 }

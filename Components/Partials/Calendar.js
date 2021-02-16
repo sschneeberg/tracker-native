@@ -4,8 +4,8 @@ import Day from './Day';
 
 function Calendar() {
     const days = [];
-    for (let i = 1; i < 32; i++) {
-        days.push(<Day key={`key ${i}`} day={i} />);
+    for (let i = 0; i < 29; i++) {
+        days.push(<Day key={`key ${i}`} day={i} style={{ fontFamily: 'OpenSans_400Regular' }} />);
     }
     return <View style={styles.container}>{days}</View>;
 }
