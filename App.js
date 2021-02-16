@@ -47,10 +47,10 @@ export default function App() {
     };
 
     const icons = {
-        Search: <AntDesign name="search1" size={24} color="#474747" />,
-        Home: <AntDesign name="home" size={24} color="#474747" />,
-        Calendar: <AntDesign name="calendar" size={24} color="#474747" />,
-        Settings: <AntDesign name="setting" size={24} color="#474747" />
+        Search: <AntDesign key={'search'} name="search1" size={24} color="#474747" />,
+        Home: <AntDesign key={'home'} name="home" size={24} color="#474747" />,
+        Calendar: <AntDesign key={'calendar'} name="calendar" size={24} color="#474747" />,
+        Settings: <AntDesign key={'settings'} name="setting" size={24} color="#474747" />
     };
 
     if (!fontsLoaded) {

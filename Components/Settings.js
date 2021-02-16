@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import Setting from './Partials/Setting';
 
 function Settings() {
@@ -45,12 +45,10 @@ function Settings() {
             return <Setting key={data} value={data} />;
         });
         return (
-            <>
-                <Text key={section.title} style={styles.title}>
-                    {section.title}
-                </Text>
+            <View key={section.title}>
+                <Text style={styles.title}>{section.title}</Text>
                 {items}
-            </>
+            </View>
         );
     });
 

@@ -20,7 +20,6 @@ function Day(props) {
 
     //TEMP for teaser
     useEffect(() => {
-        console.log(props.day);
         if (props.day === 23) setColor('turquoise');
     }, []);
 
